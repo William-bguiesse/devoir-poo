@@ -15,3 +15,10 @@ def afficher_vehicules(liste_vehicules):
     else:
         for v in liste_vehicules:
             print(v)
+            
+def afficher_reservations(liste_reservations):
+    print("\n--- RESERVATIONS ---")
+    if not liste_reservations:
+        print("Aucune réservation.")
+    for res in liste_reservations:
+        print(res)
