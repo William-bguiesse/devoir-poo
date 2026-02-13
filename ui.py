@@ -44,8 +44,8 @@ def afficher_reservations(liste_res):
         print("Aucune réservation.")
     for r in liste_res:
         print(r)
-
-def afficher_reservations_client(liste_res, id_c):
+        
+def afficher_reservations_client(liste_res: list, id_c: str):
     print(f"\n--- RESERVATIONS DU CLIENT {id_c} ---")
     trouve = False
     for r in liste_res:
