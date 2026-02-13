@@ -40,24 +40,19 @@ def main():
                 print("Erreur : La cylindrée doit être un nombre !")
 
         elif choix == "3":
-            id_res = input("ID Réservation : ")
-            id_c = input("ID du Client : ")
-            id_v = input("ID du Véhicule : ")
+            saisie = ui.demander_reservation()
             
-            c_obj = next((c for c in clients if c.id_client == id_c), None)
-            v_obj = next((v for v in vehicules if v.id_vehicule == id_v), None)
-            
-            if c_obj and v_obj:
-                try:
-                    j = int(input("Nombre de jours : "))
-                    k = int(input("Forfait KM : "))
+            if saisie:
+                id_res, id_c, id_v, j, k = saisie
+                c_obj = next((c for c in clients if c.id_client == id_c), None)
+                v_obj = next((v for v in vehicules if v.id_vehicule == id_v), None)
+                
+                if c_obj and v_obj:
                     res = Reservation(id_res, id_c, id_v, j, k, tm, v_obj)
                     reservations.append(res)
                     print(f"Réservation créée. Coût : {res.cout_estime}€")
-                except ValueError:
-                    print("Erreur : Jours et KM doivent être des nombres !")
-            else:
-                print("Erreur : ID Client ou Véhicule inconnu.")
+                else:
+                    print("Erreur : ID Client ou Véhicule inconnu.")
 
         elif choix == "4":
             ui.afficher_clients(clients)
