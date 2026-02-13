@@ -2,15 +2,22 @@ import json
 
 class DataManager:
     def sauvegarder(self, fichier, liste):
-        donnees = [obj.to_dict() for obj in liste]
-        with open(fichier, "w") as f:
-            json.dump(donnees, f)
+        try:
+            donnees = [obj.to_dict() for obj in liste]
+            with open(fichier, "w") as f:
+                json.dump(donnees, f)
+        except:
+            print("Erreur : Impossible d'enregistrer le fichier !")
 
     def charger(self, fichier, classe):
         try:
             with open(fichier, "r") as f:
                 return [classe.from_dict(d) for d in json.load(f)]
+        except FileNotFoundError:
+            print("Fichier introuvable, on part de zero.")
+            return []
         except:
+            print("Erreur : Le fichier est mal ecrit ou corrompu !")
             return []
 
     def generer_id_reservation(self, reservations):
