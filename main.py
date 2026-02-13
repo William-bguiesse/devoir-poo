@@ -5,6 +5,9 @@ from models.tarifs import TarifsManager
 from data_manager import DataManager
 import ui
 
+
+
+
 def main():
     dm = DataManager()
     tm = TarifsManager()
@@ -22,6 +25,8 @@ def main():
         print("6. Réservations d'un client")
         
         choix = input("\nVotre choix : ")
+        ui.nettoyer_terminal()
+        
 
         if choix == "1":
             id_c = input("ID Client : ")

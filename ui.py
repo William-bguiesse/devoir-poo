@@ -1,3 +1,5 @@
+import os
+
 def afficher_clients(liste_clients):
     print("\n" + "="*30)
     print("REPERTOIRE DES CLIENTS")
@@ -52,3 +54,7 @@ def afficher_reservations_client(liste_res, id_c):
             trouve = True
     if not trouve:
         print("Aucune réservation pour ce client.")
+
+
+def nettoyer_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
