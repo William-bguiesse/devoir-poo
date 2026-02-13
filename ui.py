@@ -22,3 +22,16 @@ def afficher_reservations(liste_reservations):
         print("Aucune réservation.")
     for res in liste_reservations:
         print(res)
+        
+def demander_reservation(tm):
+    print("\n--- NOUVELLE RESERVATION ---")
+    id_res = input("ID Réservation : ")
+    id_c = input("ID Client : ")
+    id_v = input("ID Véhicule : ")
+    try:
+        j = int(input("Jours : "))
+        k = int(input("KM : "))
+        return id_res, id_c, id_v, j, k
+    except:
+        print("Erreur de saisie.")
+        return None
