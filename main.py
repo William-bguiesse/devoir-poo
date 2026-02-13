@@ -19,6 +19,7 @@ def main():
         print("3. Créer une réservation")
         print("4. Afficher tout")
         print("5. Quitter et sauvegarder")
+        print("6. Réservations d'un client")
         
         choix = input("\nVotre choix : ")
 
@@ -65,6 +66,10 @@ def main():
             dm.sauvegarder("reservations.json", reservations)
             print("Sauvegarde réussie. Fermeture...")
             break
+
+        elif choix == "6":
+            id_c = input("ID du client à chercher : ")
+            ui.afficher_reservations_client(reservations, id_c)
 
 if __name__ == "__main__":
     main()

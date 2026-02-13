@@ -35,3 +35,20 @@ def demander_reservation(tm):
     except:
         print("Erreur de saisie.")
         return None
+    
+def afficher_reservations(liste_res):
+    print("\n--- TOUTES LES RESERVATIONS ---")
+    if not liste_res:
+        print("Aucune réservation.")
+    for r in liste_res:
+        print(r)
+
+def afficher_reservations_client(liste_res, id_c):
+    print(f"\n--- RESERVATIONS DU CLIENT {id_c} ---")
+    trouve = False
+    for r in liste_res:
+        if r.id_client == id_c:
+            print(r)
+            trouve = True
+    if not trouve:
+        print("Aucune réservation pour ce client.")
